@@ -6,7 +6,7 @@ Our network was trained separately on the following datasets:
 
 ## Demo
 This demo will demonstrate the capabilities of our network to classify images of recyclable materials.  While not exemplary, it highlights two key ideas:
-1. Convolutional layers don't need to have giant kernel sizes in order to classify images.  A deep enough network can achieve an impressive accuracy (considering the small kernel sizes) in a short amount of time.
+1. Convolutional layers don't need to have giant kernel sizes in order to classify images.  A deep enough network can achieve an above 50% accuracy (considering the small kernel sizes) in a short amount of time.
 2. It's important to provide convolutional networks with as much image variety as possible.  In our case training with the Trashnet dataset, it's clear that the network has a difficult time ignoring features of the background when attempting to classify images, as the Trashnet dataset contains only images of recyclable materials on a white posterboard background.
 
 Almost all materials necessary to run the demo can be found in the Demo directory with the exception of the trained network model and weights, which are found in the Project directory.  Assuming the entire repo has been cloned, no files should need to be moved in order to make things work.  You will, however, need to provide your own set of images and image labels to feed to the demo.
@@ -65,4 +65,6 @@ Note that all images fed to the network will be resized to 100x100 pixels, and s
 8. Click the "Start" button that appears below the final to view the network's predictions for an image in the set.  Use the "Next" and "Previous" buttons to cycle through images.
 
 ### Interpreting the Results
-If fed images with noisy backgrounds, you'll find that the network has a difficult time classifying images correctly.  Stripes of contrasting color in the background may result in the network predicting Paper more often than other categories.  Images with brown backgrounds may be predicted as Cardboard.
+If fed images with noisy backgrounds, you'll find that the network has a difficult time classifying images correctly.  Stripes of contrasting color in the background may result in the network predicting Paper more often than other categories.  Images with brown backgrounds may be predicted as Cardboard.  This indicates that the network needed to be trained on a dataset with more image variety.
+
+You'll also find that the network tends to have difficulty distinguishing plastic, glass, and metal, likely due to the fact that it learned these three categories tend to have a luster about them and can often be similarly shaped (at least when it comes to bottles).
