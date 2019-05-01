@@ -9,11 +9,11 @@ Almost all materials necessary to run the demo can be found in the Demo director
 * PIL
 
 ### Preparing Images for the Demo
-Images fed to the demo follow a specific naming convention: `<prefix><ID><format>`
-`<prefix>` - A string common to all the name of all image files.
-`<ID>` - A number differentiating the image file while representing the image's location in the set of images.  The ID must always be exactly one more than the ID of the previous image in the set.  IDs for numbers 0 - 9 must be in the format 00 - 09.
-`<format>` - The format of the image file (.jpg, .png, etc.)
-
+Images fed to the demo follow a specific naming convention: `<prefix><ID><format>`<br>
+`<prefix>` - A string common to all the name of all image files.<br>
+`<ID>` - A number differentiating the image file while representing the image's location in the set of images.  The ID must always be exactly one more than the ID of the previous image in the set.  IDs for numbers 0 - 9 must be in the format 00 - 09.<br>
+`<format>` - The format of the image file (.jpg, .png, etc.)<br>
+<br>
 Example file set: `demo_09.JPG`, `demo_10.JPG`, `demo_11.JPG`
 
 ### Running the Demo
