@@ -3,6 +3,13 @@
 ## Datasets
 Our network was trained separately on the following datasets:
 * Trashnet - https://github.com/garythung/trashnet
+* Richa's Dataset - Provided in the Project directory
+
+#### Trashnet
+This dataset consists of images from five categories: glass, paper, cardboard, plastic, metal, and trash.  Each image is sized 512x384 and is of a single item from the specified categories photographed on a white posterboard.
+
+#### Richa's Dataset
+This dataset consists of images from four categories: glass, plastic, cardboard, and cans.  The images are various sizes, have various backgrounds, may contain multiple items, and were scraped from the web by Richa Phulwani.
 
 ## Demo
 This demo will demonstrate the capabilities of our network to classify images of recyclable materials.  While not exemplary, it highlights two key ideas:
@@ -38,12 +45,20 @@ Images fed to the demo follow a specific naming convention: `<prefix><ID><format
 Example file set: `demo_09.JPG`, `demo_10.JPG`, `demo_11.JPG`
 <br>
 You'll also have to provide a csv of labels for the images.  There should be one value for each image in the set.  The labels refer to the classification of the image as follows:
+
+#### Regular Model (Trashnet)
 * 0 - Glass
 * 1 - Paper
 * 2 - Cardboard
 * 3 - Plastic
 * 4 - Metal
 * 5 - Trash
+<br>
+#### Alternate Model (Richa's Dataset)
+* 0 - Glass
+* 1 - Plastic
+* 2 - Cardboard
+* 4 - Can
 <br>
 Note that all images fed to the network will be resized to 100x100 pixels, and some images may be truncated.
 
@@ -57,7 +72,7 @@ Note that all images fed to the network will be resized to 100x100 pixels, and s
     * `ID_end` - change this to the integer representing the last ID of your images.
     * `file_format` - change this to reflect the file format of your images.
 4. Run all the cells in the file.  You should see a file titled `imgdat_demo.npy` appear in the demo directory.  This is a numpy array containing the data of all your images.
-5. Open `demo_code.ipynb`.
+5. Open `demo_code.ipynb` or `demo_code_alt.ipynb`.
 6. In the fourth cell, edit the following variables:
     * `path_to_labels` - edit the string to contain the path to the directory containing your image labels.
     * `file_name` - edit this to contain the name of your labels csv.
@@ -65,6 +80,10 @@ Note that all images fed to the network will be resized to 100x100 pixels, and s
 8. Click the "Start" button that appears below the final to view the network's predictions for an image in the set.  Use the "Next" and "Previous" buttons to cycle through images.
 
 ### Interpreting the Results
+#### Trashnet
 If fed images with noisy backgrounds, you'll find that the network has a difficult time classifying images correctly.  Stripes of contrasting color in the background may result in the network predicting Paper more often than other categories.  Images with brown backgrounds may be predicted as Cardboard.  This indicates that the network needed to be trained on a dataset with more image variety.
 
 You'll also find that the network tends to have difficulty distinguishing plastic, glass, and metal, likely due to the fact that it learned these three categories tend to have a luster about them and can often be similarly shaped (at least when it comes to bottles).
+
+#### Richa's Dataset
+The model trained using Richa's dataset still has some difficulty distinguishing between clear glass and clear plastic items.  Beyond this, these results can't really be compared to the regular model since there are fewer and different categories.  However, it does provide slight evidence that if the Trashnet dataset had the variety of images that Richa's dataset contains, then perhaps it would've been more invariant to features such as background colors or patterns, and would have been more capable of correctly identifying images containing a number of items.
