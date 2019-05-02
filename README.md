@@ -53,13 +53,13 @@ You'll also have to provide a csv of labels for the images.  There should be one
 * 3 - Plastic
 * 4 - Metal
 * 5 - Trash
-<br>
+
 #### Alternate Model (Richa's Dataset)
 * 0 - Glass
 * 1 - Plastic
 * 2 - Cardboard
 * 4 - Can
-<br>
+
 Note that all images fed to the network will be resized to 100x100 pixels, and some images may be truncated.
 
 ### Running the Demo
